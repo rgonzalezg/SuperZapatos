@@ -55,6 +55,8 @@ namespace SuperZapatos.ProductCatalog.Web.Portal.Controllers
                     var Stores = JsonConvert.DeserializeObject<List<StoreEntity>>(googleSearch["Stores"].ToString());
                     ViewBag.Stores = Stores;
                 }
+                else
+                    ViewBag.Stores = new List<StoreEntity>();
                 return View();
             }
         }
@@ -100,6 +102,8 @@ namespace SuperZapatos.ProductCatalog.Web.Portal.Controllers
                         var Stores = JsonConvert.DeserializeObject<List<StoreEntity>>(googleSearch["Stores"].ToString());
                         ViewBag.Stores = Stores;
                     }
+                    else
+                        ViewBag.Stores = new List<StoreEntity>();
                     return View(Articles);
                 }
                 return View("Error");

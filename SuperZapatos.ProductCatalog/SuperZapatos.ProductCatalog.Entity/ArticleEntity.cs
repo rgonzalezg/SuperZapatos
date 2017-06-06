@@ -25,6 +25,7 @@ namespace SuperZapatos.ProductCatalog.Entity
         [Required(ErrorMessage = "Total in vault is required")]
         public int TotalInVault { get; set; }
         [Display(Name = "Store")]
+        [Required(ErrorMessage = "Store is required")]
         public int StoreId { get; set; }
     }
 }

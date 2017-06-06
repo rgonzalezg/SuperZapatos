@@ -33,7 +33,7 @@ namespace SuperZapatos.ProductCatalog.Web.Portal.Controllers
                     var Stores = JsonConvert.DeserializeObject<List<StoreEntity>>(googleSearch["Stores"].ToString());
                     return View(Stores);
                 }
-                return View("Error");
+                return View(new List<StoreEntity>());
             }
         }
 

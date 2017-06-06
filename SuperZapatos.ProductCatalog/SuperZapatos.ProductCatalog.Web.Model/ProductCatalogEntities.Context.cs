@@ -18,6 +18,7 @@ namespace SuperZapatos.ProductCatalog.Model
         public ProductCatalogEntities()
             : base("name=ProductCatalogEntities")
         {
+            Database.SetInitializer<ProductCatalogEntities>(new CreateDatabaseIfNotExists<ProductCatalogEntities>());
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

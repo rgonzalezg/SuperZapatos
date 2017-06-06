@@ -60,7 +60,7 @@
             @Html.LabelFor(model => model.StoreId)
         </div>
         <div class="editor-field">           
-            @Html.DropDownListFor(x => x.StoreId, new SelectList(ViewBag.Stores, "StoreId", "Name"))
+            @Html.DropDownListFor(x => x.StoreId, new SelectList(ViewBag.Stores, "StoreId", "Name"), "Please select")
           
         </div>
 
