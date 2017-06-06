@@ -6,12 +6,25 @@
 }
 
 <h2>Index</h2>
+@using (Html.BeginForm("Index", "Articles", FormMethod.Post))
+{
+    <div class="CSSTableGenerator">
+        <table style="width: 100%">
+            <tr>
+                <td>
 
+                    @Html.DropDownList("Store", new SelectList( ViewBag.Stores, "StoreId", "Name") as SelectList, "Please select", new { @class = "dropdown1" })
+                     <input type="submit" value="Search" />
+                </td>
+            </tr>          
+        </table>
+    </div>
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="responsive">
-    
+
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ArticleId)
@@ -30,35 +43,36 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalInVault)
-        </th>     
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArticleId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalInShelf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalInVault)
-        </td>       
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { item.ArticleId }) |            
-            @Html.ActionLink("Delete", "Delete", new { item.ArticleId })
-        </td>
-    </tr>
-}
- 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArticleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalInShelf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalInVault)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.ArticleId }) |            
+                @Html.ActionLink("Delete", "Delete", new { item.ArticleId })
+            </td>
+        </tr>
+    }
+
 </table>

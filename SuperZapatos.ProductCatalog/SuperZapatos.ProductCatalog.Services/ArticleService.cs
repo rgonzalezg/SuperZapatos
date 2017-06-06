@@ -31,12 +31,29 @@ namespace SuperZapatos.ProductCatalog.Service
             if (article != null)
             {
                 Mapper.CreateMap<Article, ArticleEntity>();
-                var productModel = Mapper.Map<Article, ArticleEntity>(article);
-                return productModel;
+                var articleModel = Mapper.Map<Article, ArticleEntity>(article);
+                return articleModel;
             }
             return null; 
         }
 
+        /// <summary>
+        /// Fetches article details by store id
+        /// </summary>
+        /// <param name="articleId"></param>
+        /// <returns></returns>
+        public List<ArticleEntity> GetByStore(int storeId)
+        {
+            var articles = dbContext.Articles.Where(x => x.StoreId == storeId).ToList();
+            if (articles != null)
+            {
+                Mapper.CreateMap<Article, ArticleEntity>();
+                var articleModel = Mapper.Map<List<Article>, List<ArticleEntity>>(articles);
+                return articleModel;              
+            }
+            return null;
+        }
+       
         /// <summary>
         /// Fetches all the articles.
         /// </summary>

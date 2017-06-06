@@ -23,17 +23,32 @@ namespace SuperZapatos.ProductCatalog.Web.Portal.Controllers
         }
         //
         // GET: /Articles/
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string Store)
         {
             using (var client = new AuthenticatedClient())
             {
-                HttpResponseMessage responseMessage = await client.GetAsync("/services/articles");
+               
+                HttpResponseMessage responseStoresMessage = await client.GetAsync("/services/stores");
+
+                if (responseStoresMessage.IsSuccessStatusCode)
+                {
+                    var responseData = responseStoresMessage.Content.ReadAsStringAsync().Result;
+                    var googleSearch = JObject.Parse(responseData);
+                    var Stores = JsonConvert.DeserializeObject<List<StoreEntity>>(googleSearch["Stores"].ToString());
+                    ViewBag.Stores = Stores;
+                }
+                else
+                    ViewBag.Stores = new List<StoreEntity>();
+
+                HttpResponseMessage responseMessage = await client.GetAsync(string.IsNullOrEmpty(Store) ? "/services/articles" : "/services/articles/stores/" + Store);
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     var responseData = responseMessage.Content.ReadAsStringAsync().Result;
                     JObject googleSearch = JObject.Parse(responseData);
                     var Articles = JsonConvert.DeserializeObject<List<ArticleEntity>>(googleSearch["Articles"].ToString());
                     Articles = Articles ?? new List<ArticleEntity>();
+                   
+
                     return View(Articles);
                 }
                 return View(new List<ArticleEntity>());
@@ -60,8 +75,7 @@ namespace SuperZapatos.ProductCatalog.Web.Portal.Controllers
                 return View();
             }
         }
-
-
+ 
         //
         // POST: /Articles/Create
         [HttpPost]

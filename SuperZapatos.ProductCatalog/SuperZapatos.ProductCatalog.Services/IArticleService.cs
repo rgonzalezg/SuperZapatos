@@ -10,6 +10,7 @@ namespace SuperZapatos.ProductCatalog.Service
     public interface IArticleService
     {
         ArticleEntity Get(int articleId);
+        List<ArticleEntity> GetByStore(int storeId);
         IEnumerable<ArticleEntity> GetAll();
         int Create(ArticleEntity articleEntity);
         bool Update(int articleId, ArticleEntity articleEntity);

@@ -51,6 +51,16 @@ namespace WebApi.Controllers
             return Request.CreateErrorResponse(HttpStatusCode.NotFound, "No article found for this id");
         }
 
+        // GET services/articles/stores/:id      
+        [HttpGet]
+        public HttpResponseMessage Stores(int id)
+        {
+            var articles = _articleService.GetByStore(id);
+            if (articles != null)
+                return Request.CreateResponse(HttpStatusCode.OK, articles);
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "No article found for this store id");
+        }
+       
         // POST services/articles
         public HttpResponseMessage Post([FromBody] ArticleEntity articleEntity)
         {

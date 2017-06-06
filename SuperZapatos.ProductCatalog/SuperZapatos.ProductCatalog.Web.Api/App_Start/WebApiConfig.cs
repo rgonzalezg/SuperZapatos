@@ -18,9 +18,9 @@ namespace SuperZapatos.ProductCatalog.Web.Api
             var container = new UnityContainer();
             container.RegisterType<IArticleService, ArticleService>(new HierarchicalLifetimeManager());
             container.RegisterType<IStoreService, StoreService>(new HierarchicalLifetimeManager());
-            config.DependencyResolver = new UnityResolver(container);          
-         
-         
+            config.DependencyResolver = new UnityResolver(container);
+
+
             // Web API routes
             config.MapHttpAttributeRoutes();
             config.MessageHandlers.Add(new WrappingHandler());
@@ -28,7 +28,12 @@ namespace SuperZapatos.ProductCatalog.Web.Api
                 name: "DefaultApi",
                 routeTemplate: "services/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );         
+            );
+            config.Routes.MapHttpRoute(
+                name: "2",
+                routeTemplate: "services/{controller}/{action}/{id}",
+                defaults: new { action = "get", id = RouteParameter.Optional }
+            );
         }
     }
 }
