@@ -26,7 +26,7 @@ namespace SuperZapatos.ProductCatalog.Web.Api.ActionFilters
         [DataMember]
         public bool Status { get; set; }
 
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public int error_code { get; set; }
      
         [DataMember(EmitDefaultValue = false)]
@@ -38,7 +38,8 @@ namespace SuperZapatos.ProductCatalog.Web.Api.ActionFilters
         public ApiResponse(bool status, HttpStatusCode statusCode, object result = null, string errorMessage = null)
         {
             Status = status;
-            error_code = (int)statusCode;
+            if ((int)statusCode != 200)
+                error_code = (int)statusCode;
             if (result != null)
             {
                 if (result.GetType() == typeof(List<SuperZapatos.ProductCatalog.Entity.StoreEntity>))

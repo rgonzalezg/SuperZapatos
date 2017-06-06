@@ -14,6 +14,11 @@ namespace SuperZapatos.ProductCatalog.Web.Portal
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Routes.MapHttpRoute(
+               name: "2",
+               routeTemplate: "services/{controller}/{action}/{id}",
+               defaults: new { action = "get", id = RouteParameter.Optional }
+           );
         }
     }
 }

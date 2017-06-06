@@ -43,6 +43,8 @@ namespace WebApi.Controllers
         }
 
         // GET services/articles/:id
+        [HttpGet]
+        [Route("~/services/articles/{id}")]
         public HttpResponseMessage Get(int id)
         {
             var article = _articleService.Get(id);
@@ -53,6 +55,7 @@ namespace WebApi.Controllers
 
         // GET services/articles/stores/:id      
         [HttpGet]
+        [Route("~/services/articles/stores/{id}")]
         public HttpResponseMessage Stores(int id)
         {
             var articles = _articleService.GetByStore(id);
@@ -74,6 +77,8 @@ namespace WebApi.Controllers
         }
 
         // PUT services/articles/:id
+        [HttpPut]
+        [Route("~/services/articles/{id}")]
         public HttpResponseMessage Put(int id, [FromBody] ArticleEntity articleEntity)
         {
             if (id > 0)
@@ -89,6 +94,8 @@ namespace WebApi.Controllers
         }
 
         // DELETE services/articles
+        [HttpDelete]
+        [Route("~/services/articles/{id}")]
         public HttpResponseMessage Delete(int id)
         {
             if (id > 0)
