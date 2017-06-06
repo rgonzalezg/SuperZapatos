@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProductCatalogModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ProductCatalogModelStoreContainer">
+          <EntitySet Name="Article" EntityType="ProductCatalogModel.Store.Article" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Store" EntityType="ProductCatalogModel.Store.Store" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Article_Store" Association="ProductCatalogModel.Store.FK_Article_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Article" EntitySet="Article" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="150" />
+          <Property Name="Price" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="TotalInShelf" Type="int" />
+          <Property Name="TotalInVault" Type="int" />
+          <Property Name="StoreId" Type="int" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_Article_Store">
+          <End Role="Store" Type="ProductCatalogModel.Store.Store" Multiplicity="0..1" />
+          <End Role="Article" Type="ProductCatalogModel.Store.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductCatalogModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProductCatalogEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Articles" EntityType="ProductCatalogModel.Article" />
+          <EntitySet Name="Stores" EntityType="ProductCatalogModel.Store" />
+          <AssociationSet Name="FK_Article_Store" Association="ProductCatalogModel.FK_Article_Store">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="Article" EntitySet="Articles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="TotalInShelf" Type="Int32" />
+          <Property Name="TotalInVault" Type="Int32" />
+          <Property Name="StoreId" Type="Int32" />
+          <NavigationProperty Name="Store" Relationship="ProductCatalogModel.FK_Article_Store" FromRole="Article" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Articles" Relationship="ProductCatalogModel.FK_Article_Store" FromRole="Store" ToRole="Article" />
+        </EntityType>
+        <Association Name="FK_Article_Store">
+          <End Role="Store" Type="ProductCatalogModel.Store" Multiplicity="0..1" />
+          <End Role="Article" Type="ProductCatalogModel.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductCatalogModelStoreContainer" CdmEntityContainer="ProductCatalogEntities">
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="ProductCatalogModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TotalInShelf" ColumnName="TotalInShelf" />
+                <ScalarProperty Name="TotalInVault" ColumnName="TotalInVault" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="ProductCatalogModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

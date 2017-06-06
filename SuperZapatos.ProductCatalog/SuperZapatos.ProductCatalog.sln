@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SuperZapatos.ProductCatalog.Database", "SuperZapatos.ProductCatalog.Database\SuperZapatos.ProductCatalog.Database.sqlproj", "{51196D4B-218A-47AD-B309-1221EA14A8F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperZapatos.ProductCatalog.Web.Api", "SuperZapatos.ProductCatalog.Web.Api\SuperZapatos.ProductCatalog.Web.Api.csproj", "{D52CE353-CD76-491A-BDB3-2F703DA901DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperZapatos.ProductCatalog.Model", "SuperZapatos.ProductCatalog.Web.Model\SuperZapatos.ProductCatalog.Model.csproj", "{6C5CB12E-5F50-46CC-9E1D-AA26AFA97BCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperZapatos.ProductCatalog.Service", "SuperZapatos.ProductCatalog.Services\SuperZapatos.ProductCatalog.Service.csproj", "{80105580-521B-4936-9475-E3143F510ABF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperZapatos.ProductCatalog.Entity", "SuperZapatos.ProductCatalog.Entity\SuperZapatos.ProductCatalog.Entity.csproj", "{CB9584F4-D2EF-4F79-B5EA-61D034E53A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperZapatos.ProductCatalog.Web.Portal", "SuperZapatos.ProductCatalog.Web.Portal\SuperZapatos.ProductCatalog.Web.Portal.csproj", "{F9D167DD-8CAC-406A-BCDA-632D1C9CD6B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51196D4B-218A-47AD-B309-1221EA14A8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51196D4B-218A-47AD-B309-1221EA14A8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51196D4B-218A-47AD-B309-1221EA14A8F1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{51196D4B-218A-47AD-B309-1221EA14A8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51196D4B-218A-47AD-B309-1221EA14A8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51196D4B-218A-47AD-B309-1221EA14A8F1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D52CE353-CD76-491A-BDB3-2F703DA901DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52CE353-CD76-491A-BDB3-2F703DA901DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52CE353-CD76-491A-BDB3-2F703DA901DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52CE353-CD76-491A-BDB3-2F703DA901DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5CB12E-5F50-46CC-9E1D-AA26AFA97BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5CB12E-5F50-46CC-9E1D-AA26AFA97BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5CB12E-5F50-46CC-9E1D-AA26AFA97BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5CB12E-5F50-46CC-9E1D-AA26AFA97BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80105580-521B-4936-9475-E3143F510ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80105580-521B-4936-9475-E3143F510ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80105580-521B-4936-9475-E3143F510ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80105580-521B-4936-9475-E3143F510ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB9584F4-D2EF-4F79-B5EA-61D034E53A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB9584F4-D2EF-4F79-B5EA-61D034E53A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB9584F4-D2EF-4F79-B5EA-61D034E53A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB9584F4-D2EF-4F79-B5EA-61D034E53A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D167DD-8CAC-406A-BCDA-632D1C9CD6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D167DD-8CAC-406A-BCDA-632D1C9CD6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D167DD-8CAC-406A-BCDA-632D1C9CD6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D167DD-8CAC-406A-BCDA-632D1C9CD6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
